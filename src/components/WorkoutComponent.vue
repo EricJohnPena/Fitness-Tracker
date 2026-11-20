@@ -16,28 +16,37 @@
 
 				<div class="mt-auto text-center d-grid">
 					<router-link :to="{path: `/editWorkout/${workoutData._id}`}" class="btn btn-outline-primary btn-block">Edit Workout</router-link>
-					<button class="btn btn-danger mt-3">Delete Workout</button>
+					<button type="button" class="btn btn-danger mt-3" @click="deleteWorkout">
+						Delete Workout
+					</button>
 				</div>
 			</div>
 		</div>
 	</div>
 </template>
 
-<script>
-import { ref, watch } from "vue";
+<script setup>
+import api from "../api.js";
+import { Notyf } from "notyf";
 
-export default {
-	props: {
-		workoutData: Object,
-	},
-	setup({ workoutData }) {
-		
-		return {
-			workoutData,
-			
-		};
-	},
-	
-};
+const notyf = new Notyf();
 
+const props = defineProps({
+	workoutData: Object,
+});
+
+const emit = defineEmits(["workout-deleted"]);
+
+async function deleteWorkout() {
+	if (!confirm("Are you sure you want to delete this workout?")) return;
+	try {
+		await api.delete(`/workouts/deleteWorkout/${props.workoutData._id}`);
+
+		notyf.success("Workout deleted");
+		emit("workout-deleted", props.workoutData._id);
+	} catch (e) {
+		console.error(e);
+		notyf.error("Failed to delete workout");
+	}
+}
 </script>

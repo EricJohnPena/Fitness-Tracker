@@ -4,23 +4,20 @@ import { ref, reactive, watch } from "vue";
 import { useGlobalStore } from "../stores/user.js";
 import UserView from "../components/UserView.vue";
 
-
 export default {
     components: {
         UserView
     },
     setup() {
-        const workouts = reactive({ data: [] });
-        const isLoading = ref(false); // 1. Initialize the loading state
+        const workouts = reactive({ data: { workouts: [] } });
+        const isLoading = ref(false);
 
         const globalStore = useGlobalStore();
 
         watch(
             () => globalStore.user.token,
             async (token) => {
-                //if (!token) return; // Prevent unnecessary calls if the token is empty
-
-                isLoading.value = true; // 2. Turn on the spinner
+                isLoading.value = true;
                 
                 try {
                     await globalStore.getUserDetails(token);
@@ -29,23 +26,31 @@ export default {
                 } catch (error) {
                     console.error("Failed to fetch data:", error);
                 } finally {
-                    isLoading.value = false; // 3. Turn off the spinner when done (or if it fails)
+                    isLoading.value = false;
                 }
             },
             { immediate: true },
         );
 
+        function handleWorkoutDeleted(deletedId) {
+            if (workouts.data && workouts.data.workouts) {
+                workouts.data.workouts = workouts.data.workouts.filter(
+                    (workout) => workout._id !== deletedId
+                );
+            }
+        }
+
         return {
             workouts,
             globalStore,
-            isLoading, 
+            isLoading,
+            handleWorkoutDeleted,
         };
     },
 };
 </script>
 
 <template>
-    <!-- Show loading message while fetching data -->
     <div v-if="isLoading" class="text-center my-5">
         <div class="spinner-border text-primary" role="status">
             <span class="visually-hidden">Loading...</span>
@@ -53,10 +58,9 @@ export default {
     </div>
     
     <template v-else>
-        
         <UserView
             :workoutData="workouts.data.workouts"
+            @workout-deleted="handleWorkoutDeleted"
         />
-       
     </template>
 </template>

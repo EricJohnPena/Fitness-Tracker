@@ -46,7 +46,7 @@
             const response = await api.post("/workouts/addWorkout", workout);
 
             if (response.status === 201) {
-                notyf.success(response.data.message);
+                notyf.success("Workout added successfully");
 
                 router.push({ path: "/workouts" });
             } else {

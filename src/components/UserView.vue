@@ -17,7 +17,10 @@
                 v-for="workout in workoutData"
                 :key="workout._id"
             >
-                <WorkoutComponent :workoutData="workout" />
+                <WorkoutComponent :workoutData="workout"
+                @workout-deleted="$emit('workout-deleted', $event)" />
+                <!-- Inside UserView.vue's <template> -->
+
             </template>
         </div>
     </div>
