@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'notyf/notyf.min.css';
+import './assets/main.css';
 
 import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
@@ -10,7 +11,6 @@ import App from './App.vue';
 
 import LoginPage from './pages/LoginPage.vue';
 import RegisterPage from './pages/RegisterPage.vue';
-import HomePage from './pages/HomePage.vue';
 import WorkoutsPage from './pages/WorkoutsPage.vue';
 import AddWorkout from './pages/AddWorkout.vue';
 import EditWorkout from './pages/EditWorkout.vue';
@@ -22,8 +22,7 @@ const router = createRouter({
     routes: [
         {
             path: "/",
-            name: 'Home',
-            component: HomePage
+            redirect: "/workouts"
         },
         {
             path: "/login",
@@ -57,6 +56,7 @@ const router = createRouter({
         }
     ]
 });
+
 
 const app = createApp(App);
 

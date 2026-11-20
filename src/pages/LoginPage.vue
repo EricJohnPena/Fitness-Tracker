@@ -46,7 +46,7 @@ async function handleSubmit(e) {
 			email.value = "";
 			password.value = "";
 
-			router.push({ path: "/" });
+			router.push({ path: "/workouts" });
 		}
 	} catch (e) {
 		console.error("Login Error Details:", e); 
@@ -63,7 +63,7 @@ async function handleSubmit(e) {
 
 onBeforeMount(() => {
 	if (user.token) {
-		router.push({ path: "/" });
+		router.push({ path: "/workouts" });
 	}
 });
 </script>

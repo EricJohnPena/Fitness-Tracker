@@ -18,8 +18,8 @@
                 :key="workout._id"
             >
                 <WorkoutComponent :workoutData="workout"
-                @workout-deleted="$emit('workout-deleted', $event)" />
-                <!-- Inside UserView.vue's <template> -->
+                @workout-deleted="$emit('workout-deleted', $event)" 
+                @workout-completed="$emit('workout-completed', $event)" />
 
             </template>
         </div>

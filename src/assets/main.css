@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+
+:root {
+	/* Modern Color Palette (overrides Bootstrap defaults) */
+	--bs-primary: #2563eb;
+	--bs-primary-rgb: 37, 99, 235;
+	--bs-success: #10b981;
+	--bs-success-rgb: 16, 185, 129;
+	--bs-danger: #ef4444;
+	--bs-danger-rgb: 239, 68, 68;
+	--bs-body-bg: #f8fafc;
+	--bs-body-color: #0f172a;
+	--bs-secondary-color: #64748b;
+	--bs-border-color: #e2e8f0;
+	--bs-body-font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+	--card-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+	--card-shadow-hover: 0 14px 28px -6px rgba(15, 23, 42, 0.1), 0 6px 12px -4px rgba(15, 23, 42, 0.05);
+}
+
+/* Base Layout & Typography */
+body {
+	background-color: var(--bs-body-bg);
+	color: var(--bs-body-color);
+	font-family: var(--bs-body-font-family);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+	font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+	letter-spacing: -0.025em;
+	font-weight: 700;
+	color: #0f172a;
+}
+
+/* Modern Glass Navbar (if using a Bootstrap navbar) */
+.navbar {
+	background-color: rgba(255, 255, 255, 0.85) !important;
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+	box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.navbar .nav-link {
+	font-weight: 500;
+	color: #475569;
+	border-radius: 0.5rem;
+	padding: 0.5rem 0.85rem;
+	transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.router-link-active {
+	color: var(--bs-primary);
+	background-color: rgba(37, 99, 235, 0.08);
+}
+
+/* Elevated Cards */
+.card {
+	background-color: #ffffff;
+	border: 1px solid rgba(15, 23, 42, 0.06) !important;
+	border-radius: 1rem !important;
+	box-shadow: var(--card-shadow) !important;
+	transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.card:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--card-shadow-hover) !important;
+}
+
+.card-img-top {
+	object-fit: cover;
+	aspect-ratio: 16 / 10;
+}
+
+/* Clean Surface for Auth & Edit Form Containers */
+form.col-md-6,
+.border.rounded-3 {
+	background-color: #ffffff;
+	border: 1px solid #e2e8f0 !important;
+	border-radius: 1rem !important;
+	box-shadow: var(--card-shadow);
+	padding: 2rem;
+}
+
+/* Inputs & Labels */
+.form-label {
+	font-weight: 600;
+	font-size: 0.875rem;
+	color: #334155;
+	margin-bottom: 0.4rem;
+}
+
+.form-control,
+.form-select {
+	padding: 0.65rem 0.9rem;
+	border-radius: 0.65rem;
+	border: 1.5px solid #cbd5e1;
+	background-color: #ffffff;
+	font-size: 0.95rem;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+	border-color: var(--bs-primary);
+	box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.14);
+}
+
+/* Buttons */
+.btn {
+	font-weight: 600;
+	font-size: 0.9rem;
+	padding: 0.6rem 1.15rem;
+	border-radius: 0.65rem;
+	transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:active:not(:disabled) {
+	transform: scale(0.98);
+}
+
+.btn-primary {
+	--bs-btn-bg: #2563eb;
+	--bs-btn-border-color: #2563eb;
+	--bs-btn-hover-bg: #1d4ed8;
+	--bs-btn-hover-border-color: #1d4ed8;
+	--bs-btn-active-bg: #1e40af;
+	box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+}
+
+.btn-success {
+	--bs-btn-bg: #10b981;
+	--bs-btn-border-color: #10b981;
+	--bs-btn-hover-bg: #059669;
+	--bs-btn-hover-border-color: #059669;
+	box-shadow: 0 2px 6px rgba(16, 185, 129, 0.25);
+}
+
+.btn-outline-primary {
+	--bs-btn-color: #2563eb;
+	--bs-btn-border-color: #cbd5e1;
+	--bs-btn-hover-bg: #eff6ff;
+	--bs-btn-hover-color: #1d4ed8;
+	--bs-btn-hover-border-color: #93c5fd;
+}
+
+.btn-outline-danger {
+	--bs-btn-color: #ef4444;
+	--bs-btn-border-color: #fecaca;
+	--bs-btn-hover-bg: #fef2f2;
+	--bs-btn-hover-color: #dc2626;
+	--bs-btn-hover-border-color: #fca5a5;
+}
+
+.btn:disabled {
+	opacity: 0.55;
+	box-shadow: none;
+	cursor: not-allowed;
+}
+
+/* Badges */
+.badge {
+	font-weight: 600;
+	letter-spacing: 0.01em;
+}
+
+/* Notyf Toast Polish */
+.notyf__toast {
+	border-radius: 0.75rem !important;
+	box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15) !important;
+	font-family: var(--bs-body-font-family) !important;
+	font-weight: 500;
+}
