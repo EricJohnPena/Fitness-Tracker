@@ -1,0 +1,34 @@
+<template>
+    <div class="container">
+        <div class="row">
+            <div class="col my-5">
+                <h1 class="text-center text-primary py-1">
+                    Workouts
+                </h1>
+                <p class="text-center">
+                    Select a workout
+                </p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <template
+                v-for="workout in workoutData"
+                :key="workout._id"
+            >
+                <WorkoutComponent :workoutData="workout" />
+            </template>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import WorkoutComponent from './WorkoutComponent.vue';
+
+defineProps({
+    workoutData: {
+        type: Array,
+        required: true,
+    },
+});
+</script>

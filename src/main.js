@@ -11,6 +11,7 @@ import App from './App.vue';
 import LoginPage from './pages/LoginPage.vue';
 import RegisterPage from './pages/RegisterPage.vue';
 import HomePage from './pages/HomePage.vue';
+import WorkoutsPage from './pages/WorkoutsPage.vue';
 
 
 const router = createRouter({
@@ -30,6 +31,11 @@ const router = createRouter({
             path: "/register",
             name: 'Register',
             component: RegisterPage
+        },
+        {
+            path: "/workouts",
+            name: 'Workouts',
+            component: WorkoutsPage
         }
     ]
 });
