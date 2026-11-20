@@ -2,9 +2,9 @@
     <nav class="navbar navbar-expand-lg sticky-top bg-primary shadow-sm">
         <div class="container">
            
-            <!-- <router-link :to="{ name: 'Home' }" class="navbar-brand d-flex align-items-center">
-                <img src="../assets/logo.jpg" alt="PS logo" height="40" class="me-2" />
-            </router-link> -->
+            <router-link :to="{ name: 'Workouts' }" class="navbar-brand d-flex align-items-center">
+               <h1>Workouts</h1>
+            </router-link>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -12,7 +12,7 @@
 
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
-                    <!-- <router-link :to="{ name: 'Products' }" class="nav-link">Products</router-link> -->
+                    <router-link :to="{ name: 'Profile' }" class="nav-link" v-if="store.user?.email">Profile</router-link>
 
 
                     <router-link :to="{ name: 'Register' }" class="nav-link" v-if="!store.user?.email">Register</router-link>
