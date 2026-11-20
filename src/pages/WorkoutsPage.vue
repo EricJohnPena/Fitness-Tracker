@@ -26,7 +26,6 @@ export default {
                     await globalStore.getUserDetails(token);
                     let { data } = await api.get("/workouts/getMyWorkouts");
                     workouts.data = data;
-                    
                 } catch (error) {
                     console.error("Failed to fetch data:", error);
                 } finally {
@@ -54,8 +53,9 @@ export default {
     </div>
     
     <template v-else>
+        
         <UserView
-            :productData="workouts.data"
+            :workoutData="workouts.data.workouts"
         />
        
     </template>

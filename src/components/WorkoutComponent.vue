@@ -11,9 +11,8 @@
 					{{ workoutData.name }}
 				</h4>
 				<p class="card-text mt-3">
-					{{ workoutData.description }}
+					{{ workoutData.duration }}
 				</p>
-				<p>Price: PHP {{ workoutData.price }}</p>
 
 				<div class="mt-auto text-center d-grid">
 					<router-link :to="{path: `/workouts/${workoutData._id}`}" class="btn btn-outline-primary btn-block">View Workout</router-link>
@@ -37,5 +36,7 @@ export default {
 			
 		};
 	},
+	
 };
+
 </script>

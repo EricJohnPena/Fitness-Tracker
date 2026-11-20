@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <div class="row">
+            <router-link :to="{ name: 'AddWorkouts' }" class="btn btn-primary mt-5  ">+ Add Workout</router-link>
             <div class="col my-5">
                 <h1 class="text-center text-primary py-1">
                     Workouts
@@ -24,7 +25,6 @@
 
 <script setup>
 import WorkoutComponent from './WorkoutComponent.vue';
-
 defineProps({
     workoutData: {
         type: Array,
