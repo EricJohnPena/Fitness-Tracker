@@ -15,7 +15,7 @@
                     <!-- <router-link :to="{ name: 'Products' }" class="nav-link">Products</router-link> -->
 
 
-                    <!-- <router-link :to="{ name: 'Register' }" class="nav-link" v-if="!store.user?.email">Register</router-link> -->
+                    <router-link :to="{ name: 'Register' }" class="nav-link" v-if="!store.user?.email">Register</router-link>
                     <router-link :to="{ name: 'Login' }" class="nav-link" v-if="!store.user?.email">Login</router-link>
                     
                     <a href="#" class="nav-link" v-else @click.prevent="handleLogout">Logout</a>
@@ -42,6 +42,6 @@ function handleLogout() {
     store.user.isAdmin = null;
     store.user.token = null; 
     
-   // router.push({ name: 'Login' });
+    router.push({ name: 'Login' });
 }
 </script>

@@ -9,19 +9,27 @@ import { createPinia } from 'pinia';
 import App from './App.vue';
 
 import LoginPage from './pages/LoginPage.vue';
+import RegisterPage from './pages/RegisterPage.vue';
+import HomePage from './pages/HomePage.vue';
+
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        // {
-        //     path: "/",
-        //     name: 'Home',
-        //     component: HomePage
-        // },
+        {
+            path: "/",
+            name: 'Home',
+            component: HomePage
+        },
         {
             path: "/login",
             name: 'Login',
             component: LoginPage
+        },
+        {
+            path: "/register",
+            name: 'Register',
+            component: RegisterPage
         }
     ]
 });
