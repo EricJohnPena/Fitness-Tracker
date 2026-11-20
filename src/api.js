@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const api = axios.create({
-    baseURL: "https://fitness-tracker-api-4m17.onrender.com",
+    baseURL: "https://fitnessapp-api-ln8u.onrender.com",
 });
 
 

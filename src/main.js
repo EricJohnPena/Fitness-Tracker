@@ -1,5 +1,34 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'notyf/notyf.min.css';
 
-createApp(App).mount('#app')
+import { createApp } from 'vue';
+import { createRouter, createWebHistory } from 'vue-router';
+import { createPinia } from 'pinia';
+import App from './App.vue';
+
+import LoginPage from './pages/LoginPage.vue';
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes: [
+        // {
+        //     path: "/",
+        //     name: 'Home',
+        //     component: HomePage
+        // },
+        {
+            path: "/login",
+            name: 'Login',
+            component: LoginPage
+        }
+    ]
+});
+
+const app = createApp(App);
+
+app.use(createPinia());
+app.use(router);
+
+app.mount('#app');
