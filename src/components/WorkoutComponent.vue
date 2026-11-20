@@ -15,7 +15,8 @@
 				</p>
 
 				<div class="mt-auto text-center d-grid">
-					<router-link :to="{path: `/workouts/${workoutData._id}`}" class="btn btn-outline-primary btn-block">View Workout</router-link>
+					<router-link :to="{path: `/editWorkout/${workoutData._id}`}" class="btn btn-outline-primary btn-block">Edit Workout</router-link>
+					<button class="btn btn-danger mt-3">Delete Workout</button>
 				</div>
 			</div>
 		</div>

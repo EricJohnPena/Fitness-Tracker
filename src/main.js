@@ -13,6 +13,7 @@ import RegisterPage from './pages/RegisterPage.vue';
 import HomePage from './pages/HomePage.vue';
 import WorkoutsPage from './pages/WorkoutsPage.vue';
 import AddWorkout from './pages/AddWorkout.vue';
+import EditWorkout from './pages/EditWorkout.vue';
 
 
 const router = createRouter({
@@ -42,6 +43,11 @@ const router = createRouter({
             path: "/addWorkouts",
             name: 'AddWorkouts',
             component: AddWorkout
+        },
+        {
+            path: "/editWorkout/:id",
+            name: 'EditWorkout',
+            component: EditWorkout
         }
     ]
 });
